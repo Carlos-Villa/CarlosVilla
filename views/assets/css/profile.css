@@ -1,0 +1,19 @@
+.title{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 300px;
+	background-color: #2396f3;
+	text-align: center;
+}
+.title img{
+	width: 200px;
+	height: 200px;
+	border-radius: 100px;
+	margin-top: 2em;
+}
+.title h1{
+	font-family: Arial;
+	
+	color: #FFF;
+}
