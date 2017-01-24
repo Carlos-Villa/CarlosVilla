@@ -1,0 +1,58 @@
+/*ID*/
+#facebook{
+	transition: all 1s;
+}
+#facebook i{
+	color: #059;
+	transition: all 0.5s;
+}
+#facebook:hover{
+	background-color: #059;
+}
+#facebook:hover >i{
+	color: #FFF;
+	transform: scale(1.2);
+}
+#github{
+	transition: all 1s;
+}
+#github i{
+	color: rgba(0,0,0,0.85);
+	transition: all 0.5s;
+}
+#github:hover{
+	background-color: rgba(0,0,0,0.85);
+}
+#github:hover >i{
+	color: #FFF;
+	transform: scale(1.2);
+}
+#twitter{
+	transition: all 1s;
+}
+#twitter i{
+	color: #2396f3;
+	transition: all 0.5s;
+}
+#twitter:hover{
+	background-color: #2396f3;
+}
+#twitter:hover >i{
+	color: #FFF;
+	transform: scale(1.2);
+}
+/*Classes*/
+.sociales{
+	text-align: center;
+	margin-top: 0.5em;
+}
+.sociales_item{
+	display: inline-block;
+	vertical-align: top;
+	text-decoration: none;
+	padding: 0.2em 0.3em;
+	margin-right: -4px;
+	font-size: 40px;
+	border-radius: 100px;
+	cursor: pointer;
+}
