@@ -1,3 +1,24 @@
+/*ID*/
+#searcher_container{
+	position: relative;
+	left: 300px;
+	display: inline-block;
+	vertical-align: top;
+	width: 70%;
+	height: 100%;
+}
+#search__icon{
+	margin: 1.5em 1em;
+}
+#searcher{
+	width: 90%;
+	border-left: transparent;
+	border-top: transparent;
+	border-right: transparent;
+	border-bottom:1px solid #2396f3;
+	background-color: inherit;
+	padding: 0.5em;
+}
 .title{
 	margin: 0;
 	padding: 0;
@@ -16,3 +37,4 @@
 	font-family: Arial;	
 	color: #FFF;
 }
+

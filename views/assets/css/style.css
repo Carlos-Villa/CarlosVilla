@@ -8,8 +8,9 @@ html,body{
 header{
 	position: fixed;
 	width: 100%;
-	height: 10em;
-	background-color: #2396f3;
+	height: 5em;
+	background-color: #F6F6F6;
+	box-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 footer{
 	margin: 0;
@@ -23,7 +24,7 @@ main{
 	padding: 0;
 	width: 100%;
 	min-height: 100%;
-	background-color: #CCC;
+	background-color: #BBB;
 }
 nav{
 	position: fixed;
@@ -33,4 +34,18 @@ nav{
 	height: 100%;
 	background-color: #FFF;
 	box-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+/*classes*/
+.btn-fab--mini{
+	border-color: transparent;
+	width: 35px;
+	height: 35px;
+	border-radius: 100px;
+	cursor: pointer;
+}
+
+.btn-colored{
+	background-color: #2396f3;
+	color: #FFF;
 }
