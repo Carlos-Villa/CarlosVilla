@@ -49,3 +49,23 @@ nav{
 	background-color: #2396f3;
 	color: #FFF;
 }
+.hide{
+	display: none;
+}
+.input_text{
+	border-left: transparent;
+	border-top: transparent;
+	border-right: transparent;
+	border-bottom:1px solid rgba(0,0,0,0.5);
+	background-color: inherit;
+	padding: 0.5em;
+}
+
+.input_text__focus{
+	border-left: transparent;
+	border-top: transparent;
+	border-right: transparent;
+	border-bottom:1px solid #2396f3;
+	background-color: inherit;
+	padding: 0.5em;
+}
