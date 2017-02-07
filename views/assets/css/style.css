@@ -52,6 +52,7 @@ nav{
 .hide{
 	display: none;
 }
+
 .input_text{
 	border-left: transparent;
 	border-top: transparent;
@@ -68,4 +69,16 @@ nav{
 	border-bottom:1px solid #2396f3;
 	background-color: inherit;
 	padding: 0.5em;
+}
+
+.label__text{
+	position: absolute;
+	z-index: 100;
+	color: rgba(0,0,0,0.5);
+	top: 1.7em;
+}
+.label__text-float{
+	color: #2396f3;
+	top: -0.7em;
+	font-family: Arial;
 }

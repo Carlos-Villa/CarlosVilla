@@ -1,1 +1,3 @@
-<?php echo "test"; ?>
+<?php 
+	spl_autoload_register(function($class){});
+ ?>
