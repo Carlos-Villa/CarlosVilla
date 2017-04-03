@@ -4,6 +4,8 @@
 		constructor(){
 			var inputs=this.getAll(".input_text");
 			var expandables=this.getAll(".expandable-btn");
+			var expandable_titles=this.getAll('.expandable-title');
+			var target_headers=this.getAll('.target-header');
 			for (var i = inputs.length - 1; i >= 0; i--) {
 				var label=document.querySelector(".label__text");
 				inputs[i].addEventListener('focus',function(){
@@ -25,6 +27,19 @@
 			}
 			for (var i = expandables.length - 1; i >= 0; i--) {
 				expandables[i].addEventListener('click',this.toggle);
+			}
+			for (var i = expandable_titles.length - 1; i >= 0; i--) {
+				expandable_titles[i].addEventListener('click',function(){
+					var content=this.nextElementSibling.style.display;
+					if(content=="none"||content==""){
+						this.nextElementSibling.style.display="block";
+					}else{
+						this.nextElementSibling.style.display="none";
+					}
+				});
+			}
+			for (var i = target_headers.length - 1; i >= 0; i--) {
+				target_headers[i].style.background='url('+target_headers[i].getAttribute("data-background")+')';
 			}
 		}
 		getElement(selector){
