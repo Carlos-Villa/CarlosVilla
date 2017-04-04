@@ -6,6 +6,7 @@
 			var expandables=this.getAll(".expandable-btn");
 			var expandable_titles=this.getAll('.expandable-title');
 			var target_headers=this.getAll('.target-header');
+			var replay_btn=this.getAll('.replay-btn');
 			for (var i = inputs.length - 1; i >= 0; i--) {
 				var label=document.querySelector(".label__text");
 				inputs[i].addEventListener('focus',function(){
@@ -28,6 +29,20 @@
 			for (var i = expandables.length - 1; i >= 0; i--) {
 				expandables[i].addEventListener('click',this.toggle);
 			}
+			for (var i = replay_btn.length - 1; i >= 0; i--) {
+				this.addMultipleListeners(replay_btn[i],'touchstart click',function(e){
+				var rect = this.getBoundingClientRect();
+				this.classList.remove("ripple");
+				var ripple = document.createElement('span');
+				ripple.classList.add('ripple');
+				ripple.style.height = ripple.style.width = Math.max(rect.width, rect.height) + 'px';
+				this.appendChild(ripple);
+				var top = e.pageY - rect.top - ripple.offsetHeight / 2 -  document.body.scrollTop;
+				var left = e.pageX - rect.left - ripple.offsetWidth / 2 - document.body.scrollLeft;
+				ripple.style.top = top + 'px';
+				ripple.style.left = left + 'px';
+				});
+			}
 			for (var i = expandable_titles.length - 1; i >= 0; i--) {
 				expandable_titles[i].addEventListener('click',function(){
 					var content=this.nextElementSibling.style.display;
@@ -42,6 +57,13 @@
 				target_headers[i].style.background='url('+target_headers[i].getAttribute("data-background")+')';
 			}
 		}
+		addMultipleListeners(element,events,callback){
+			events=events.split(' ');
+			for (var i = events.length - 1; i >= 0; i--) {
+				element.addEventListener(events[i],callback);
+			}
+
+		}
 		getElement(selector){
 			return document.querySelector(selector);
 		}
@@ -55,6 +77,7 @@
 				x.style.display="inline-block";
 				if(y.getAttribute("for")==this.getAttribute("data-expandable")&&y.style.display=="none"){
 					y.style.display="inline-block";
+					y.focus();
 				}
 			}else{
 				x.style.display="none";

@@ -1,21 +1,16 @@
 /*ID*/
-#searcher_container{
-	position: relative;
-	left: 300px;
-	display: inline-block;
-	vertical-align: top;
-	width: 70%;
-	height: 100%;
-	font-family: Arial;
-}
-#search__icon{
-	margin: 1.5em 1em;
-}
 #searcher{
 	width: 90%;
 }
-
+#test_target{
+	margin: 1em auto;
+}
 /*Classes*/
+.preloader{
+	width: 100px;
+	height: 100px;
+	margin: 0.5em auto;
+}
 .rights{
 	position: absolute;
 	width: 90%;
@@ -24,6 +19,7 @@
 	text-align:center;
 	font-size: 0.8em;
 }
+
 .title{
 	margin: 0;
 	padding: 0;
