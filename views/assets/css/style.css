@@ -172,6 +172,10 @@ nav, .searcher_container{
 }
 .search__icon{
 	margin: 1.5em 0em 1.5em 0.5em;
+	border:none;
+}
+.search__icon:focus{
+	text-decoration: none;
 }
 
 .target-small{
