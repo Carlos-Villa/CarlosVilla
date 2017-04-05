@@ -1,11 +1,32 @@
 /*ID*/
-#searcher{
-	width: 90%;
-}
+
 #test_target{
 	margin: 1em auto;
 }
 /*Classes*/
+.col_test{
+	background-color: rgba(0,0,0,0.6);
+	color: #FFF;
+	text-align: center;
+	line-height: 5;
+}
+.grid_section{
+	background-color: #FFF;
+	box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+.header_demo{
+	position: relative !important;
+}
+.header_demo nav{
+	height: 300px;
+}
+.home{
+	left: 0;
+	width: 0;
+	padding: 0;
+	font-size: 2em !important;
+	top: 0;
+}
 .preloader{
 	width: 100px;
 	height: 100px;

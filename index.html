@@ -4,21 +4,21 @@
 <head>
 	<title>Carlos Villa</title>
 	<meta charset="utf-8">
+	<meta name="application-name" content="Overloadeds' Blog">
 	<meta name="description" content="Personal Blog, Tutorials, Web Development and more...">
 	<meta name="keywords" content="HTML5,JS,CSS,AJAX,PHP,IOT,ARDUINO">
 	<meta name="author" content="Carlos Villa">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="views/assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="views/assets/css/profile.css">
-	<link rel="stylesheet" type="text/css" href="views/assets/css/sociales.css">
 </head>
 
 <body>
 	<header>
-		<nav>
+		<nav >
 			<div class="title">
 				<img class="avatar" src="views/assets/img/user.jpg" />
-				<h1>Carlos Villa</h1>
+				<h1><i class="fa fa-home link-navigation home" aria-hidden="true" data-response=".grid-layout" data-href="views/html/home.html"></i>Carlos Villa</h1>
 			</div>
 			<div class="sociales">
 				<a href="https://github.com/qkoryones" class="sociales_item" id="github" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
@@ -28,7 +28,17 @@
 			</div>
 			<div class="expandable-container">
 				<div class="expandable-title replay-btn">About of me</div>
-				<div class="expandable-content hide">I'm a Computer Systems Engineer, passionate for the programming and learn new things</div>
+				<div class="expandable-content">I'm a Computer Systems Engineer, passionate for the programming and learn new things</div>
+			</div>
+			<div class="expandable-container">
+				<div class="expandable-title replay-btn">Layouts</div>
+				<div class="expandable-content">
+					<ul class="list">
+						<li class="list-item replay-btn link-navigation" data-response=".grid-layout" data-href="views/html/fixed.html">Fixed Layout</li>
+						<li class="list-item replay-btn link-navigation" data-response=".grid-layout" data-href="views/html/grids.html">Grids</li>
+						
+					</ul>
+				</div>
 			</div>
 
 			<div class="rights">
@@ -38,12 +48,13 @@
 		<div class="searcher_container">
 			<button class="btn-fab--mini btn-colored expandable-btn replay-btn search__icon" for="searcher" data-expandable="searcher"><i class="fa fa-search" aria-hidden="true"></i>
 			</button>
-			<label for="searcher" class="label__text" style="display:none">Buscar</label>
-			<input type="search" class="input_text" id="searcher"  style="display:none;">
+			<label for="searcher" class="label__text hide">Buscar</label>
+			<input type="search" class="input_text searcher" id="searcher"  >
 		</div>
 	</header>
-	<main>
-		<div class="target-big" id="test_target">
+	<main >
+		<div class="grid-layout">
+			<div class="target-big" id="test_target">
 			<div class="target-header" data-background="views/assets/img/HTML5.jpg">
 				<span class="target-title">Target Example</span>
 			</div>
@@ -56,6 +67,7 @@
 			<div class="target-actions">
 				<a href="#" class="action-btn replay-btn  action-info">more...</a>
 			</div>
+		</div>
 		</div>
 	</main>
 	<script src="views/assets/js/styles.js"></script>
