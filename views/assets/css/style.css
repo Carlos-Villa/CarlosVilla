@@ -52,7 +52,9 @@ nav,
     display: inline-block;
     vertical-align: top;
 }
+section{
 
+}
 
 /*IDs*/
 
@@ -168,10 +170,14 @@ nav,
     background-color: #2396f3;
     color: #FFF;
 }
-
+.close{
+	font-size: 1.5em;
+	color: rgba(0,0,0,0.8);
+}
 .code__editor{
+	resize: none;
 	width: 100%;
-	min-height: 150px;
+	min-height: 180px;
 	background-color: rgba(0,0,0,0.8);
 	font-size: 1.5em;
 	text-align: left;
@@ -306,6 +312,7 @@ nav,
     color: #FFF;
 }
 .fab-button{
+	display: inline-block;
 	width: 65px;
 	height: 65px;
 	border-radius: 100px;
@@ -325,6 +332,10 @@ nav,
 	margin: 0.5em;
 	cursor: pointer;
 	border:none;
+}
+.float-btn:hover {
+    transform: translateZ(100px);
+    box-shadow: 1px 10px 15px rgba(0, 0, 0, 0.5);
 }
 .grid-layout{
 	position: relative;
@@ -428,9 +439,8 @@ nav,
     transition: box-shadow 0.4s ease-in;
 }
 
-.replay-btn:hover {
-    transform: translateZ(100px);
-    box-shadow: 1px 10px 15px rgba(0, 0, 0, 0.5);
+.right{
+	float: right;
 }
 
 .ripple {
@@ -497,31 +507,28 @@ nav,
 }
 .target-small {
     width: 320px;
-    min-height: 200px;
-    margin: 1em;
+    margin: 1em auto;
     background: rgba(241, 241, 241, 1);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 }
 
 .target-middle {
     width: 540px;
-    min-height: 400px;
-    margin: 1em;
+    margin: 1em auto;
     background: rgba(241, 241, 241, 1);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 }
 
 .target-big {
     width: 840px;
-    min-height: 600px;
-    margin: 1em;
+    margin: 1em auto;
     background: rgba(241, 241, 241, 1);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 }
 
 .target-actions {
     width: 100%;
-    min-height: 2em;
+    display: inline-block;
 }
 
 .target-border {
@@ -536,13 +543,23 @@ nav,
     margin: 0.5em auto;
     text-align: justify;
     color: rgba(0, 0, 0, 0.7);
+    transition: all 1s;
 }
-
+.target-content-image {
+	position: relative;
+	display: none;
+	top: 0.5em;
+    width: 90%;
+    margin: 0.5em auto;
+    text-align: justify;
+    color: rgba(0, 0, 0, 0.7);
+}
 .target-small .target-header {
     position: relative;
     width: 100%;
     height: 200px;
     background-size: 100% 100% !important;
+    transition: height 1s;
 }
 
 .target-middle .target-header {
@@ -550,6 +567,7 @@ nav,
     width: 100%;
     height: 350px;
     background-size: 100% 100% !important;
+    transition: height 1s;
 }
 
 .target-big .target-header {
@@ -557,6 +575,7 @@ nav,
     width: 100%;
     height: 450px;
     background-size: 100% 100% !important;
+    transition: all 1s;
 }
 
 .target-header .target-title {
@@ -568,14 +587,14 @@ nav,
     left: 0.5em;
 }
 /*icon*/
-.more-icon{
-	transform: rotate(-90deg);
+.more-vert{
 	position: relative;
+	transform: rotate(-90deg);
 	float: right;
 	right: 0.5em;
-	
 	font-size: 1.5em;
 	font-weight: bolder;
+	margin: auto;
 }
 /*Demo*/
 .card_demo{
@@ -583,7 +602,7 @@ nav,
 	vertical-align: top;
 }
 .main_demo{
-	background-color: #FFF;
+	background: radial-gradient(circle,#BBB,#666);
 	height: 220px;
 	margin: 0;
 	width: calc(100% - 300px);
