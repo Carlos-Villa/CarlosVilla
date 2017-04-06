@@ -176,7 +176,9 @@ nav,
 	font-size: 1.5em;
 	text-align: left;
 	color: teal;
-	margin: auto;
+	border:none;
+	margin: 0;
+	padding: 0;
 }
 .col-1{
 	display: inline-block;
@@ -366,6 +368,16 @@ nav,
     top: -0.7em;
     font-family: Arial;
 }
+.large-btn{
+	background-color: #BBB;
+	border:none;
+	color: rgba(0,0,0,0.7);
+	padding: 0.5em;
+	border-radius: 3px;
+	margin: 0.5em;
+	width: 120px;
+	cursor: pointer;
+}
 .link-navigation{
 	position: absolute;
 	text-decoration:none;
@@ -450,7 +462,16 @@ nav,
 .search__icon:focus {
     text-decoration: none;
 }
-
+.small-btn{
+	background-color: #BBB;
+	border:none;
+	color: rgba(0,0,0,0.7);
+	padding: 0.5em;
+	border-radius: 3px;
+	margin: 0.5em;
+	width: 90px;
+	cursor: pointer;
+}
 .sociales {
     text-align: center;
     margin-top: 0.5em;
@@ -468,7 +489,8 @@ nav,
 }
 .span-title{
 	display: block;
-	margin: 1em auto;
+	padding: 1em;
+	margin-bottom: 1em;
 	font-size: 2em;
 	color: rgba(0,0,0,0.7);
 	text-align: center;
