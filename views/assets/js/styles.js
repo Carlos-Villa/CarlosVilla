@@ -8,6 +8,7 @@
                 current.inputEffects();
                 current.expandablesBtn();
                 current.ripple();
+                current.rippleBlack();
                 current.expandablesTitle();
                 current.addBackgrounds(current);
                 current.actionCard();
@@ -25,6 +26,7 @@
                         current.removeListener(".expandable-btn", "click", current.expandablesFunction);
                         current.addBackgrounds(current);
                         current.ripple();
+                        current.rippleBlack();
                         current.expandablesTitle();
                         current.inputEffects();
                         current.expandablesBtn();
@@ -215,6 +217,23 @@
                     this.classList.remove("ripple");
                     var ripple = document.createElement('span');
                     ripple.classList.add('ripple');
+                    ripple.style.height = ripple.style.width = Math.max(rect.width, rect.height) + 'px';
+                    this.appendChild(ripple);
+                    var top = e.pageY - rect.top - ripple.offsetHeight / 2 - document.body.scrollTop;
+                    var left = e.pageX - rect.left - ripple.offsetWidth / 2 - document.body.scrollLeft;
+                    ripple.style.top = top + 'px';
+                    ripple.style.left = left + 'px';
+                });
+            }
+        }
+        rippleBlack() {
+            var replay_btn = this.getAll('.replay-btn--black');
+            for (var i = replay_btn.length - 1; i >= 0; i--) {
+                this.addMultipleListeners(replay_btn[i], 'touchstart click', function(e) {
+                    var rect = this.getBoundingClientRect();
+                    this.classList.remove("ripple-black");
+                    var ripple = document.createElement('span');
+                    ripple.classList.add('ripple-black');
                     ripple.style.height = ripple.style.width = Math.max(rect.width, rect.height) + 'px';
                     this.appendChild(ripple);
                     var top = e.pageY - rect.top - ripple.offsetHeight / 2 - document.body.scrollTop;
