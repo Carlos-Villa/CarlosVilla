@@ -11,6 +11,8 @@
                 current.expandablesTitle();
                 current.addBackgrounds(current);
                 current.actionCard();
+                current.checkInput();
+                current.toggleInput();
             } else {
                 var response_element = document.querySelector('.grid-layout');
                 var xhr = new XMLHttpRequest();
@@ -19,12 +21,14 @@
                     if (xhr.status === 200) {
                         response_element.innerHTML = xhr.responseText;
                         current.actionCard();
+                        current.checkInput();
                         current.removeListener(".expandable-btn", "click", current.expandablesFunction);
                         current.addBackgrounds(current);
                         current.ripple();
                         current.expandablesTitle();
                         current.inputEffects();
                         current.expandablesBtn();
+                        current.toggleInput();
                     }
                 }
                 xhr.send();
@@ -73,6 +77,24 @@
                 element.addEventListener(events[i], callback);
             }
         }
+        checkInput(){
+        	var tmp=this;
+        	var checks=tmp.getAll('.input_check');
+
+        	for (var i = checks.length - 1; i >= 0; i--){
+        		checks[i].addEventListener('change',function(){
+        			if(this.getAttribute("checked")=="false" || this.getAttribute("checked")==null ){
+        				this.setAttribute("checked",true);
+        				this.previousElementSibling.classList.remove('label__check');
+        				this.previousElementSibling.classList.add('is-checked');
+        			}else{
+        				this.setAttribute("checked",false);
+        				this.classList.remove('is-checked');
+        				this.previousElementSibling.classList.add('label__check');
+        			}
+        		});
+        	}
+        }
         expandablesBtn() {
             var tmp = this;
             var expandables = tmp.getAll(".expandable-btn");
@@ -86,11 +108,10 @@
         expandablesFunction(children) {
             if (children[2].style.display == "none" || children[2].style.display == "") {
                 children[2].style.display = "inline-block";
-                if (children[1].style.display == "none" || children[1].style.display == "") {
+                if ((children[1].style.display == "none" || children[1].style.display == "")&&this.hasClass(children[1],"float__label")) {
                     children[1].style.display = "inline-block";
                     children[1].focus();
                 }
-                console.log(children[2].style.display);
             } else {
                 children[2].style.display = "none";
                 children[1].style.display = "none";
@@ -142,6 +163,9 @@
             }
             xhr.send();
         }
+        hasClass(element,class_name){
+        	return element.className.indexOf(class_name)>-1;
+        }
         inputEffects() {
             var inputs = this.getAll(".input_text");
             for (var i = inputs.length - 1; i >= 0; i--) {
@@ -158,6 +182,27 @@
                     }
                 });
             }
+        }
+        is(element,attr){
+        	return element.getAttribute(attr);
+        }
+        toggleInput(){
+        	var tmp=this;
+        	var checks=tmp.getAll('.input_toggle');
+
+        	for (var i = checks.length - 1; i >= 0; i--){
+        		checks[i].addEventListener('change',function(){
+        			if(this.getAttribute("checked")=="false" || this.getAttribute("checked")==null ){
+        				this.setAttribute("checked",true);
+        				this.previousElementSibling.children[0].style.background="#2396f3";
+        				this.previousElementSibling.children[0].style.left="50%";
+        			}else{
+        				this.setAttribute("checked",false);
+        				this.previousElementSibling.children[0].style.background="#DDD";
+        				this.previousElementSibling.children[0].style.left="-1%";
+        			}
+        		});
+        	}
         }
         on(element, ev, callback) {
             element.addEventListener(ev, callback);
@@ -182,9 +227,6 @@
         removeListener(e, ev, callback) {
             var el = this.getAll(e);
             for (var i = el.length - 1; i >= 0; i--) {
-                console.log(e);
-                console.log(ev);
-                console.log(callback);
                 el[i].removeEventListener(ev, callback);
             }
         }
