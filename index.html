@@ -9,8 +9,7 @@
     <meta name="keywords" content="HTML5,JS,CSS,AJAX,PHP,IOT,ARDUINO">
     <meta name="author" content="Carlos Villa">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="views/assets/css/codesigners.min.css" >
-    <link rel="stylesheet" type="text/css" href="views/assets/css/profile.css" >
+    
 </head>
 
 <body>
@@ -99,6 +98,16 @@
     <script>
     	(function(){
     		window.addEventListener('load',function(){
+    			var cd_css=document.createElement('link');
+    			var style=document.createElement('link');
+    			cd_css.rel='stylesheet';
+    			cd_css.type='text/css';
+    			cd_css.href='views/assets/css/codesigners.min.css';
+    			style.rel='stylesheet';
+    			style.type='text/css';
+    			style.href='views/assets/css/profile.css';
+    			document.querySelector('head').appendChild(cd_css);
+    			document.querySelector('head').appendChild(style);
     			var CD=document.createElement('script');
     			var awesome=document.createElement('script');
     			CD.src='views/assets/js/codesigners.min.js';
