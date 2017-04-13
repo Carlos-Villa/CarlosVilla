@@ -1,6 +1,6 @@
 (function() {
-    "use strict";
-    class basicFunctions {
+    'use strict';
+    class BasicFunctions {
         constructor() {
             var current = this;
             var uri = location.toString().split("#");
@@ -253,6 +253,6 @@
 
         }
     }
-    var basics = new basicFunctions();
+    var basics = new BasicFunctions();
 
 })();
