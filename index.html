@@ -9,102 +9,25 @@
     <meta name="keywords" content="HTML5,JS,CSS,AJAX,PHP,IOT,ARDUINO">
     <meta name="author" content="Carlos Villa">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="views/assets/css/codesigners.min.css" >
-    <link rel="stylesheet" type="text/css" href="views/assets/css/profile.css" >
+    <link rel="stylesheet" type="text/css" href="components/style.css" >
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="title">
-                <img class="avatar" src="views/assets/img/user.jpg" />
-                <h1><i class="fa fa-home link-navigation home" aria-hidden="true" data-response=".grid-layout" data-href="views/html/home.html"></i>Carlos Villa</h1>
-            </div>
-            <div class="sociales">
-                <a href="https://github.com/qkoryones" class="sociales_item" id="github" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-                <a href="https://www.linkedin.com/in/carlosgerardovillaavila" id="linkedin" class="sociales_item" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                <a href="https://twitter.com/CarlosGerardo_V" id="twitter" class="sociales_item" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                <a href="https://www.facebook.com/qkoryones" id="facebook" class="sociales_item" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
-            </div>
-            
-            <div class="navigation">
-                <div class="expandable-container">
-                    <div class="expandable-title replay-btn--black">About of me</div>
-                    <div class="expandable-content">I'm a Computer Systems Engineer, passionate for the programming and learn new things</div>
-                </div>
-                <div class="expandable-container">
-                    <div class="expandable-title replay-btn--black">Buttons</div>
-                    <div class="expandable-content">
-                        <ul class="list">
-                            <li class="list-item replay-btn link-navigation" data-response=".grid-layout" data-href="views/html/large_buttons.html">Large</li>
-                            <li class="list-item replay-btn link-navigation" data-response=".grid-layout" data-href="views/html/fab_buttons.html">Fab</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="expandable-container">
-                    <div class="expandable-title replay-btn--black">Cards</div>
-                    <div class="expandable-content">
-                        <ul class="list">
-                            <li class="list-item replay-btn link-navigation" data-response=".grid-layout" data-href="views/html/simple_cards.html">Simple Cards</li>
-                            <li class="list-item replay-btn link-navigation" data-response=".grid-layout" data-href="views/html/image_cards.html">Image Cards</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="expandable-container">
-                    <div class="expandable-title replay-btn--black">Input Fields</div>
-                    <div class="expandable-content">
-                        <ul class="list">
-                            <li class="list-item replay-btn link-navigation" data-response=".grid-layout" data-href="views/html/input_field.html">Simple Input</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="expandable-container">
-                    <div class="expandable-title replay-btn--black">Layouts</div>
-                    <div class="expandable-content">
-                        <ul class="list">
-                            <li class="list-item replay-btn link-navigation" data-response=".grid-layout" data-href="views/html/fixed.html">Fixed Layout</li>
-                            <li class="list-item replay-btn link-navigation" data-response=".grid-layout" data-href="views/html/grids.html">Grids</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="rights">
-                Carlos Villa (c) 2017
-            </div>
-        </nav>
-        <div class="searcher_container right">
-            <button class="btn-fab--mini btn-colored expandable-btn replay-btn search__icon" for="searcher" data-expandable="searcher"><i class="fa fa-search" aria-hidden="true"></i>
-            </button>
-            <label for="searcher" class="label__text float__label hide">Buscar</label>
-            <input type="search" class="input_text searcher" id="searcher">
-        </div>
-    </header>
-    <main>
-        <div class="grid-layout">
-            <div class="target-big" id="test_target">
-                <div class="target-header" data-background="views/assets/img/HTML5.jpg">
-                    <span class="target-title">Target Example</span>
-                </div>
-                <div class="target-content">
-                    This site is in building
-                    <div class="preloader"></div>
-                </div>
-                <div class="target-border"></div>
-                <div class="target-actions">
-                    <a href="#" class="action-btn replay-btn info">more...</a>
-                </div>
-            </div>
-        </div>
-    </main>
+    <app-root></app-root>
+    
     <script>
-    	(function(){
-    		window.addEventListener('load',function(){
-    			var CD=document.createElement('script');
-    			var awesome=document.createElement('script');
-    			CD.src='views/assets/js/codesigners.min.js';
+    	(()=>{
+    		window.addEventListener('load',() => {
+    			let main=document.createElement('script');
+    			let awesome=document.createElement('script');
+
+    			main.src='components/main.js';
+                main.type='module';
     			awesome.src='https://use.fontawesome.com/6226746d2a.js';
-    			document.querySelector('body').appendChild(CD);
+
+    			document.querySelector('body').appendChild(main);
     			document.querySelector('body').appendChild(awesome);
+
     		});
     	})();
     </script>
