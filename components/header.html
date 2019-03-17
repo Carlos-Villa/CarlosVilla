@@ -5,13 +5,37 @@
 		}
 		header{
 			width: 100%;
-			height: 550px;
+			height: 450px;
 			background-repeat: no-repeat;
 			background-attachment: fixed;
 			background-size: 100% auto;
 		}
+		#title{
+			margin: 0 auto;
+			text-align: center;
+			font-weight: lighter;
+			font-family: Arial;
+			top: 3em;
+			position: relative;
+			font-size: 4em;
+			color: #FFF;
+			text-shadow: 1px 1px 15px rgba(0,0,0,0.7);
+		}
+		#content{
+			text-align: center;
+			margin: 0 auto;
+			top: 6em;
+			position: relative;
+			font-family: Arial;
+			font-weight: lighter;
+			font-size: 2em;
+			color: #000;
+			text-shadow: 1px 1px 15px #FFF;
+		}
 	</style>
 	<header>
+		<h1 id="title"></h1>
+		<p id="content"></p>
 		<app-avatar image='./views/assets/img/user.jpg'></app-avatar>
 	</header>
 </template>

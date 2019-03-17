@@ -39,6 +39,8 @@ let Header = class Header extends HTMLElement{
 		console.log(this,instance);
 		const image = this.getAttribute('image');
 		instance.querySelector('header').style.backgroundImage = `url(${image})`;
+		instance.querySelector('header h1#title').innerText = this.getAttribute('title');
+		instance.querySelector('header p#content').innerText = this.getAttribute('content');
 		shadowRoot.appendChild(instance);
 
     	
