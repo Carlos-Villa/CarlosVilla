@@ -1,7 +1,12 @@
+let components = {};
 let Codesign = class Codesign{
 
-	add(element){
+	constructor(){
+		
+	}
 
+	add(element){
+		components[element.name] = {name:element.name,loading:true};
 		customElements.define(
 
 			element.name,
@@ -9,6 +14,24 @@ let Codesign = class Codesign{
 
 		);
 
+	}
+
+	check_load(name){
+		
+		
+		components[name].loading = false;
+		let loading = 0;
+		let tm = Object.entries(components).length;
+		let ppm = 100 / tm;
+		let pml = 0;
+		Object.entries(components).forEach((c)=>{
+			loading += c[1].loading ? 1 : 0;
+		});
+		pml = ppm *  (tm - loading);
+		//5tdocument.querySelector('app-preload #percent').innerText = `${pml.toFixed(2)}%`;
+		
+		(loading == 0) ? document.querySelector('app-preload').classList.add('hide') :  false;
+		
 	}
 
 	load_file(path,type){

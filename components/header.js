@@ -20,6 +20,8 @@ let Avatar = class Avatar extends HTMLElement{
 		this.setAttribute('image',blob);
 		instance.querySelector('img').src = blob;
 		shadowRoot.appendChild(instance);
+		console.log('Avatar connected');
+		codesign.check_load('app-avatar');
 	}
 
 }
@@ -54,6 +56,8 @@ let Header = class Header extends HTMLElement{
 		instance.querySelector('header h1#title').innerText = this.getAttribute('title');
 		instance.querySelector('header p#content').innerText = this.getAttribute('content');
 		shadowRoot.appendChild(instance);
+		console.log('Header connected');
+		codesign.check_load('app-header');
     	
 	}
 
@@ -96,6 +100,8 @@ let Nav = class Nav extends HTMLElement{
 		//menu.forEach(())
 		console.log(this,instance,list, li_rep.childNodes);
 		shadowRoot.appendChild(instance);
+		console.log('Nav5 connected');
+		codesign.check_load('app-navigation');
 
     	
 	}

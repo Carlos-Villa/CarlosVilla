@@ -23,6 +23,8 @@ let Card = class Card extends HTMLElement{
 		//this.setAttribute('image',blob);
 		//instance.querySelector('img').src = blob;
 		shadowRoot.appendChild(instance);
+		console.log('Card connected');
+		codesign.check_load('app-card');
 	}
 
 }
@@ -85,6 +87,8 @@ let CardsArea = class CardArea extends HTMLElement{
 		//this.setAttribute('image',blob);
 		//instance.querySelector('img').src = blob;
 		shadowRoot.appendChild(instance);
+		console.log('Card Area connected');
+		codesign.check_load('app-card-area');
 	}
 
 }

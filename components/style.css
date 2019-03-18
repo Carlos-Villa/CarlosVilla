@@ -24,3 +24,7 @@ app-avatar{
 	margin: 0em calc(50% - 100px);
 	top: 10em;
 }
+
+.hide{
+	display: none;
+}
