@@ -1,5 +1,6 @@
 import {Codesign} from './core.js';
 import {Header} from './header.js';
+import {CardsArea} from './cards.js';
 
 let codesign = new Codesign();
 
