@@ -5,12 +5,19 @@
 		}
 		section{
 			width: 90%;
-			margin: 8em auto;
+			margin: 5em auto;
 		}
 		section app-card{
 			width: calc(33.33% - 1em);
 			display: inline-block;
 			margin: 0.5em;
+		}
+
+		@media screen and (max-width: 480px) {
+			section app-card{
+				width: calc(100% - 1em);
+				display: block;
+			}
 		}
 	</style>
 	<section>
