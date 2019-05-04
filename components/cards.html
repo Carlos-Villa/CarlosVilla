@@ -5,18 +5,33 @@
 		}
 		section{
 			width: 90%;
-			margin: 5em auto;
+			margin: 8em auto;
 		}
 		section app-card{
 			width: calc(33.33% - 1em);
 			display: inline-block;
+			vertical-align: top;
 			margin: 0.5em;
 		}
 
-		@media screen and (max-width: 480px) {
+		@media screen and (max-width: 580px) {
+			section{
+				margin: 5.5em auto;
+			}
 			section app-card{
 				width: calc(100% - 1em);
 				display: block;
+			}
+		}
+
+		@media screen and (min-width: 581px) and (max-width: 940px) {
+			section {
+				margin: 6em auto;
+			}
+			section app-card{
+				width: calc(50% - 1em);
+				display: inline-block;
+				vertical-align: top;
 			}
 		}
 	</style>
@@ -53,6 +68,7 @@
 			position: relative;
 			top: 200px;
 			left: 1em;
+			width: calc(100% - 1em);
 		}
 		#content{
 			width: 90%;
