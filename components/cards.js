@@ -43,17 +43,17 @@ let CardsArea = class CardArea extends HTMLElement{
 
 			{
 				title:'Multiplatform Apps',
-				image:'./views/assets/img/slide_5.jpg',
+				image:'./public/img/slide_5.jpg',
 				content:'Multiplatform applications development'
 			},
 			{
 				title:'Web Applications',
-				image:'./views/assets/img/HTML5.jpg',
+				image:'./public/img/HTML5.jpg',
 				content:'Web Applications development'
 			},
 			{
 				title:'Web Sites',
-				image:'./views/assets/img/slide_1.jpg',
+				image:'./public/img/slide_1.jpg',
 				content:'Web Sites development'
 			}
 
@@ -63,6 +63,7 @@ let CardsArea = class CardArea extends HTMLElement{
 	getCards(name){
 		return eval(`this.${name}`) ? eval(`this.${name}`) : false;
 	}
+
 	async connectedCallback(){
 
 		const template = await codesign.load_file('./components/cards.html');
