@@ -1,8 +1,17 @@
 let components = {};
+let Html = HTMLElement;
 let Codesign = class Codesign{
 
 	constructor(){
 		
+	}
+	
+	$(selector){
+		return document.querySelector(selector);
+	}
+
+	$$(selector){
+		return document.querySelectorAll(selector);
 	}
 
 	add(element){
@@ -28,10 +37,21 @@ let Codesign = class Codesign{
 			loading += c[1].loading ? 1 : 0;
 		});
 		pml = ppm *  (tm - loading);
-		//5tdocument.querySelector('app-preload #percent').innerText = `${pml.toFixed(2)}%`;
+		//document.querySelector('app-preload #percent').innerText = `${pml.toFixed(2)}%`;
 		
-		(loading == 0) ? document.querySelector('app-preload').classList.add('hide') :  false;
+		(loading == 0 && this.$('app-preload')) ? this.$('app-preload').classList.add('hide') :  false;
 		
+	}
+
+	init_log(){
+
+		window.onerror = (msg, url, lineNo, columnNo, error) =>{
+			
+			let err = {message:msg,url:url,line:lineNo,column: columnNo,object:error};
+
+			console.log(err);
+			return true;
+		};
 	}
 
 	load_file(path,type){
@@ -54,8 +74,11 @@ let Codesign = class Codesign{
 	    return URL.createObjectURL(blob);
 	}
 
+	title(title){
+		(this.$('title')) ? this.$('title').innerHTML = title : false;
+	}
+
 	utf8_blob(data,opts){
-		console.log(data, data.length);
 		
 	    let rawLength = data.length;
 	    let array = new Uint8Array(rawLength);
@@ -69,4 +92,4 @@ let Codesign = class Codesign{
 	}
 }
 
-export {Codesign};
+export {Codesign,Html};

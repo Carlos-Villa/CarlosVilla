@@ -1,8 +1,8 @@
-import {Codesign} from './core.js';
+import {Codesign,Html} from '../../app/lib/core.js';
 
 let codesign = new Codesign();
 
-let Card = class Card extends HTMLElement{
+let Card = class Card extends Html{
 	constructor(){
 		super();
 	}
@@ -23,7 +23,6 @@ let Card = class Card extends HTMLElement{
 		//this.setAttribute('image',blob);
 		//instance.querySelector('img').src = blob;
 		shadowRoot.appendChild(instance);
-		console.log('Card connected');
 		codesign.check_load('app-card');
 	}
 
@@ -36,7 +35,7 @@ codesign.add({
 
 });
 
-let CardsArea = class CardArea extends HTMLElement{
+let CardsArea = class CardArea extends Html{
 	constructor(){
 		super();
 		this.cards = [
@@ -66,7 +65,7 @@ let CardsArea = class CardArea extends HTMLElement{
 
 	async connectedCallback(){
 
-		const template = await codesign.load_file('./components/cards.html');
+		const template = await codesign.load_file('./components/cards/cards.html');
 		//let img = await codesign.load_file(this.getAttribute('image'),'blob');
 		//const blob = URL.createObjectURL(img);
 		const shadowRoot = this.attachShadow({mode: 'open'});
@@ -88,7 +87,6 @@ let CardsArea = class CardArea extends HTMLElement{
 		//this.setAttribute('image',blob);
 		//instance.querySelector('img').src = blob;
 		shadowRoot.appendChild(instance);
-		console.log('Card Area connected');
 		codesign.check_load('app-card-area');
 	}
 

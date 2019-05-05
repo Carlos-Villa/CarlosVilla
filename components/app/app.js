@@ -1,10 +1,11 @@
-import {Codesign} from './core.js';
-import {Header} from './header.js';
-import {CardsArea} from './cards.js';
+import {Codesign, Html} from '../../app/lib/core.js';
+import {Header} from '../headers/header.js';
+import {Avatar} from '../avatars/avatar.js';
+import {CardsArea} from '../cards/cards.js';
 
 let codesign = new Codesign();
 
-let Preload = class Preload extends HTMLElement{
+let Preload = class Preload extends Html{
 	
 	constructor(){
 		super();
@@ -16,7 +17,7 @@ let Preload = class Preload extends HTMLElement{
 
 	async connectedCallback(){
 
-		const template = await codesign.load_file('./components/app.html');
+		const template = await codesign.load_file('./components/app/app.html');
 		const shadowRoot = this.attachShadow({mode: 'open'});
 		let parser = new DOMParser();
 		let doc = parser.parseFromString(template, "text/html");
@@ -25,7 +26,6 @@ let Preload = class Preload extends HTMLElement{
 		this.tmpl = templ.content.cloneNode(true);
 
 		shadowRoot.appendChild(instance);
-		console.log('Preload connected');
 		codesign.check_load('app-preload');
 
 	}
@@ -38,22 +38,23 @@ codesign.add({
 
 });
 
-let App = class App extends HTMLElement{
+let App = class App extends Html{
 
 	constructor(){
 		super();
+		codesign.init_log();
 
 	}
 
 	async connectedCallback(){
-		const template = await codesign.load_file('./components/app.html');
+		const template = await codesign.load_file('./components/app/app.html');
 		const shadowRoot = this.attachShadow({mode: 'open'});
 		let parser = new DOMParser();
 		let doc = parser.parseFromString(template, "text/html");
 		const templ = doc.querySelector('#app');
 		const instance = templ.content.cloneNode(true);
 		shadowRoot.appendChild(instance);
-		console.log('App connected');
+		codesign.title('Carlos Villa');
 		codesign.check_load('app-root');
 	}
 }
