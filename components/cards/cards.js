@@ -9,7 +9,7 @@ let Card = class Card extends Html{
 
 	async connectedCallback(){
 
-		const template = await codesign.load_file('./components/cards.html');
+		const template = await codesign.load_file('./components/cards/cards.html');
 		//let img = await codesign.load_file(this.getAttribute('image'),'blob');
 		//const blob = URL.createObjectURL(img);
 		const shadowRoot = this.attachShadow({mode: 'open'});
