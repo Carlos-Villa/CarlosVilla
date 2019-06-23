@@ -1,34 +1,23 @@
 <template id="app">
 	<style type="text/css">
 		:host{
+
 			width: 100%;
 			height: 100%;
-			background: #125;
+			overflow-x: hidden;
 		}
 
-		app-header{
+		app-navigation{
 			width: 100%;
-			height: 400px;
 		}
-		app-avatar{
-			width: 200px;
-			border-radius: 50%;
+
+		app-content{
 			position: relative;
-			margin: 0em calc(50% - 100px);
-			top: 10em;
-		}
-		app-card-area{
-			
+			top:4em;
 		}
 	</style>
-	<app-header 
-
-		image='public/img/slide_4.jpg' 
-		title='Carlos Villa'
-		content='Software Development Engineer'
-		>
-	</app-header>
-	<app-card-area></app-card-area>
+	<app-navigation></app-navigation>
+	<app-content></app-content>
 </template>
 
 <template id="preloader">
@@ -46,7 +35,7 @@
 		.preloader {
 			width: 60px;
 			height: 60px;
-			border: 2px solid #cccccc;
+			/*border: 2px solid #cccccc;*/
 			border-top: 2px solid #2396f3;
 			border-radius: 50%;
 			animation-name: loop;

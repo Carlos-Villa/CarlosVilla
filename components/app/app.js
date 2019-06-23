@@ -1,4 +1,5 @@
 import {Codesign, Html} from '../../app/lib/core.js';
+import { Content } from '../containers/content.js';
 import {Header} from '../headers/header.js';
 import {Avatar} from '../avatars/avatar.js';
 import {CardsArea} from '../cards/cards.js';

@@ -3,7 +3,7 @@ let Html = HTMLElement;
 let Codesign = class Codesign{
 
 	constructor(){
-		
+		this.uuid = this.uuid();
 	}
 	
 	$(selector){
@@ -72,6 +72,40 @@ let Codesign = class Codesign{
 
 	    let blob = new Blob([array], opts);
 	    return URL.createObjectURL(blob);
+	}
+
+	uuid(){
+
+		let nav = window.navigator;
+	    let screen = window.screen;
+	    let uid = nav.mimeTypes.length;
+	    uid += nav.userAgent.replace(/\D+/g, '');
+	    uid += nav.plugins.length;
+	    uid += screen.height || '';
+	    uid += screen.width || '';
+	    uid += screen.pixelDepth || '';
+
+	    let uid_array = [];
+
+	    for (var i = 0; i < uid.length ; i++) {
+	    	let sub = uid.substring(i,i+2);
+	    	if(sub.length == 1 ){
+	    		uid_array.push('0'+sub);
+	    	}else{
+	    		uid_array.push(sub);	
+	    	}
+	    }
+	    
+	    return uid_array.map((e,i,a)=>{
+	    	let sum = parseInt(e.split('')[0]) + parseInt(e.split('')[1]);
+	    	
+	    	e = parseInt(e) <= 16 ? parseInt(e) : sum; 
+	    	
+	    	let h = e.toString(16).toUpperCase();
+	    	return i%4==3 ? h+'-' : h;
+	    }).join('');
+	    
+	    
 	}
 
 	title(title){
