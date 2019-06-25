@@ -41,19 +41,19 @@ let CardsArea = class CardArea extends Html{
 		this.cards = [
 
 			{
-				title:'Multiplatform Apps',
-				image:'./public/img/slide_5.jpg',
-				content:'Multiplatform applications development'
-			},
-			{
 				title:'Web Applications',
-				image:'./public/img/HTML5.jpg',
-				content:'Web Applications development'
+				image:'./public/img/pwas.svg',
+				content:'Progresive web applications'
 			},
 			{
-				title:'Web Sites',
+				title:'Mobile Applications',
+				image:'./public/img/mobile.svg',
+				content:'Mobile applications connected with your pwas'
+			},
+			{
+				title:'Desktop Applications',
 				image:'./public/img/slide_1.jpg',
-				content:'Web Sites development'
+				content:'Desktop applications connected whit your apps&pwas'
 			}
 
 		];
