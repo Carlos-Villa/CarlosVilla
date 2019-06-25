@@ -13,7 +13,7 @@ let noty = class Noty{
 
 				let opts = {
 					body:'Welcome to mi site',
-					icon:`${path}public/img/angular.svg.png`
+					icon:`${path}public/img/angulars.svg.png`
 				}
 				new Notification("Hi, welcome!" , opts);
 			});
@@ -23,7 +23,7 @@ let noty = class Noty{
 			let data = {title:'test'};
 			let opts = {
 				body:'Welcome to mi site',
-				icon:`${path}public/img/angular.svg.png`
+				icon:`${path}public/img/angulars.svg.png`
 			}
 			new Notification("Hi, welcome!" , opts);
 		}
