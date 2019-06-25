@@ -1,76 +1,11 @@
 <template id="app">
-	<style type="text/css">
-		:host{
-			width: 100%;
-			height: 100%;
-			background: #125;
-		}
-
-		app-header{
-			width: 100%;
-			height: 400px;
-		}
-		app-avatar{
-			width: 200px;
-			border-radius: 50%;
-			position: relative;
-			margin: 0em calc(50% - 100px);
-			top: 10em;
-		}
-		app-card-area{
-			
-		}
-	</style>
-	<app-header 
-
-		image='public/img/slide_4.jpg' 
-		title='Carlos Villa'
-		content='Software Development Engineer'
-		>
-	</app-header>
-	<app-card-area></app-card-area>
+	<link rel="stylesheet" href="./components/app/app.css">
+	<app-navigation></app-navigation>
+	<app-content></app-content>
 </template>
 
 <template id="preloader">
-	<style type="text/css">
-		:host{
-			width: 100%;
-			height: 100%;
-		}
-		#preload{
-			width: 100%;
-			height: 100%;
-			background: rgba(0,0,0,0.8);
-			position: fixed;
-		}
-		.preloader {
-			width: 60px;
-			height: 60px;
-			border: 2px solid #cccccc;
-			border-top: 2px solid #2396f3;
-			border-radius: 50%;
-			animation-name: loop;
-			animation-duration: 0.7s;
-			animation-iteration-count: infinite;
-			animation-timing-function: cubic-bezier(.65,.05,.36,1);
-			margin: 25% auto;
-		}
-
-		@media screen and (max-width: 480px) {
-			.preloader{
-				margin: 50% auto;
-			}
-		}
-
-		@keyframes loop {
-			from {
-				transform: rotate(0deg);
-			}
-			to {
-				transform: rotate(360deg);
-			}
-		}
-	</style>
+	<link rel="stylesheet" href="./components/app/app.css">
 	<div id="preload">
 		<div class="preloader"></div>
 		<div id="percent"></div>

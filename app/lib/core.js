@@ -1,9 +1,24 @@
 let components = {};
+let w = window;
+let nav = w.navigator;
 let Html = HTMLElement;
+let Storage = localStorage;
+
+
+Storage.__proto__.set = (name,data)=>{
+	Storage.setItem(name,JSON.stringify(data));
+};
+
+Storage.__proto__.get = (name)=>{
+	return Storage.getItem(name,JSON.parse(data));
+};
+
 let Codesign = class Codesign{
 
 	constructor(){
-		
+		this.uuid = this.uuid();
+		Storage.set('online',nav.onLine);
+
 	}
 	
 	$(selector){
@@ -22,11 +37,9 @@ let Codesign = class Codesign{
 			element.instance
 
 		);
-
 	}
 
 	check_load(name){
-		
 		
 		components[name].loading = false;
 		let loading = 0;
@@ -38,14 +51,13 @@ let Codesign = class Codesign{
 		});
 		pml = ppm *  (tm - loading);
 		//document.querySelector('app-preload #percent').innerText = `${pml.toFixed(2)}%`;
-		
 		(loading == 0 && this.$('app-preload')) ? this.$('app-preload').classList.add('hide') :  false;
 		
 	}
 
 	init_log(){
 
-		window.onerror = (msg, url, lineNo, columnNo, error) =>{
+		w.onerror = (msg, url, lineNo, columnNo, error) =>{
 			
 			let err = {message:msg,url:url,line:lineNo,column: columnNo,object:error};
 
@@ -74,6 +86,39 @@ let Codesign = class Codesign{
 	    return URL.createObjectURL(blob);
 	}
 
+	uuid(){
+
+	    let screen = w.screen;
+	    let uid = nav.mimeTypes.length;
+	    uid += nav.userAgent.replace(/\D+/g, '');
+	    uid += nav.plugins.length;
+	    uid += screen.height || '';
+	    uid += screen.width || '';
+	    uid += screen.pixelDepth || '';
+
+	    let uid_array = [];
+
+	    for (var i = 0; i < uid.length ; i++) {
+	    	let sub = uid.substring(i,i+2);
+	    	if(sub.length == 1 ){
+	    		uid_array.push('0'+sub);
+	    	}else{
+	    		uid_array.push(sub);	
+	    	}
+	    }
+	    
+	    return uid_array.map((e,i,a)=>{
+	    	let sum = parseInt(e.split('')[0]) + parseInt(e.split('')[1]);
+	    	
+	    	e = parseInt(e) <= 16 ? parseInt(e) : sum; 
+	    	
+	    	let h = e.toString(16).toUpperCase();
+	    	return i%4==3 ? h+'-' : h;
+	    }).join('');
+	    
+	    
+	}
+
 	title(title){
 		(this.$('title')) ? this.$('title').innerHTML = title : false;
 	}
@@ -92,4 +137,18 @@ let Codesign = class Codesign{
 	}
 }
 
-export {Codesign,Html};
+let Connect = class Connect{
+	constructor(){
+		w.addEventListener('online',()=>{
+			console.log('Online');
+			Storage.set('online',true);
+		});
+
+		w.addEventListener('offline', ()=>{
+			Storage.set('online',false);
+			console.log('Offline');
+		});
+	}
+}
+
+export {Codesign,Html,Storage,Connect};

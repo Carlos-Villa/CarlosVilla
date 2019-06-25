@@ -1,40 +1,5 @@
 <template id="card-area">
-	<style type="text/css">
-		:host{
-			width: 100%;
-		}
-		section{
-			width: 90%;
-			margin: 8em auto;
-		}
-		section app-card{
-			width: calc(33.33% - 1em);
-			display: inline-block;
-			vertical-align: top;
-			margin: 0.5em;
-		}
-
-		@media screen and (max-width: 580px) {
-			section{
-				margin: 5.5em auto;
-			}
-			section app-card{
-				width: calc(100% - 1em);
-				display: block;
-			}
-		}
-
-		@media screen and (min-width: 581px) and (max-width: 940px) {
-			section {
-				margin: 6em auto;
-			}
-			section app-card{
-				width: calc(50% - 1em);
-				display: inline-block;
-				vertical-align: top;
-			}
-		}
-	</style>
+	<link rel="stylesheet" href="./components/cards/app-card-area.css">
 	<section>
 		<app-card
 			repeat-in='cards'
@@ -47,47 +12,7 @@
 </template>
 
 <template id="card">
-	<style type="text/css">
-		:host{
-			width: 100%;
-		}
-		article{
-			width: 100%;
-			box-shadow: 1px 1px 10px rgba(0,0,0,0.7);
-		}
-
-		#title-area{
-			height: 250px;
-			background-size: 100% 100%;
-			background-color: #4d4d4d;
-		}
-		#title-text{
-			color: #F5F5F5;
-			text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
-			font-weight: lighter;
-			font-family: Arial;
-			position: relative;
-			top: 200px;
-			left: 1em;
-			width: calc(100% - 1em);
-		}
-		#content{
-			width: 90%;
-			margin: 1em auto;
-			color: rgba(0,0,0,0.7);
-			font-size: 1.3em;
-			font-weight: lighter;
-			font-family: Arial;
-			text-align: justify;
-		}
-		.separator{
-			width: 90%;
-			margin: 0.5em auto;
-			padding: 1em;
-			border-top: 1px solid;
-			border-color: rgba(0,0,0,0.3);
-		}
-	</style>
+	<link rel="stylesheet" href="./components/cards/app-card-area.css">
 	<article>
 		<div id="title-area">
 			<h2 id="title-text"></h2>
