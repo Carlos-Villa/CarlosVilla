@@ -1,10 +1,14 @@
-import {Codesign, Html} from '../../app/lib/core.js';
+import { Codesign, Html, Storage,Connect } from '../../app/lib/core.js';
+import { noty } from '../../app/lib/noty.js';
+import { Component } from '../../app/lib/decorators.js';
 import { Content } from '../containers/content.js';
-import {Header} from '../headers/header.js';
-import {Avatar} from '../avatars/avatar.js';
-import {CardsArea} from '../cards/cards.js';
+import { Header } from '../headers/header.js';
+import { Avatar } from '../avatars/avatar.js';
+import { CardsArea } from '../cards/cards.js';
 
 let codesign = new Codesign();
+new Connect();
+new noty().check();
 
 let Preload = class Preload extends Html{
 	
@@ -25,7 +29,6 @@ let Preload = class Preload extends Html{
 		const templ = doc.querySelector('#preloader');
 		const instance = templ.content.cloneNode(true);
 		this.tmpl = templ.content.cloneNode(true);
-
 		shadowRoot.appendChild(instance);
 		codesign.check_load('app-preload');
 

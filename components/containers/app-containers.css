@@ -1,0 +1,10 @@
+app-content:host{
+	position: absolute;
+}
+
+.content{
+	width: 100%;
+	height: calc(100% - 4em);
+	overflow-y: auto;
+	overflow-x: hidden;
+}

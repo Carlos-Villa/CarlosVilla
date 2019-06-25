@@ -1,0 +1,75 @@
+app-header:host{
+	width: 100%;
+}
+header{
+	width: 100%;
+	height: 450px;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% auto;
+	image-rendering: optimizeQuality;
+}
+#title{
+	margin: 0 2em;
+	text-align: right;
+	font-weight: lighter;
+	font-family: Arial;
+	top: 4em;
+	position: relative;
+	font-size: 4em;
+	color: #FFF;
+	text-shadow: 1px 1px 15px rgba(0,0,0,0.7);
+
+}
+#content{
+	text-align: right;
+	margin: 0 1em;
+	top: 8em;
+	position: relative;
+	font-family: Arial;
+	font-weight: lighter;
+	font-size: 2em;
+	color: #000;
+	text-shadow: 1px 1px 15px #FFF;
+}
+@media screen and (max-width: 580px) {
+	header{
+		width: 100%;
+		height: 270px;
+		background-color: #DDD;
+		background-size: 100% 100%;
+	}
+	#title{
+		top:25%;
+		margin:0 0.5em;
+		font-size: 2rem;
+	}
+	#content{
+		top:27%;
+		font-size: 1.4rem;
+	}
+}
+
+@media screen and (min-width: 581px) and (max-width: 940px) {
+
+	#title{
+		top:30%;
+		margin:0 0.5em;
+		font-size: 2.5rem;
+	}
+	#content{
+		top:31%;
+		font-size: 1.8rem;
+	}
+}
+
+app-nav:host{
+			
+}
+nav{
+	width: 100%;
+	height: 4em;
+	background: rgba(0,0,0,0.5);
+	position: fixed;
+	z-index: 9999999;
+}
