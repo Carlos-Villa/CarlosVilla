@@ -43,17 +43,20 @@ let CardsArea = class CardArea extends Html{
 			{
 				title:'Web Applications',
 				image:'./public/img/pwas.svg',
-				content:'Progresive web applications'
+				content:'Progresive web applications',
+				show:true
 			},
 			{
 				title:'Mobile Applications',
 				image:'./public/img/mobile.svg',
-				content:'Mobile applications connected with your pwas'
+				content:'Mobile applications connected with your pwas',
+				show:true
 			},
 			{
 				title:'Desktop Applications',
 				image:'./public/img/slide_1.jpg',
-				content:'Desktop applications connected whit your apps&pwas'
+				content:'Desktop applications connected whit your apps&pwas',
+				show:false
 			}
 
 		];
@@ -77,11 +80,13 @@ let CardsArea = class CardArea extends Html{
 		instance.querySelector('section').innerHTML = '';
 		if(cards){
 			cards.forEach((c) =>{
-				let card = document.createElement('app-card');
-				card.setAttribute('title',c.title);
-				card.setAttribute('content',c.content);
-				card.setAttribute('image',c.image);
-				instance.querySelector('section').appendChild(card);
+				if(c.show){
+					let card = document.createElement('app-card');
+					card.setAttribute('title',c.title);
+					card.setAttribute('content',c.content);
+					card.setAttribute('image',c.image);
+					instance.querySelector('section').appendChild(card);
+				}
 			});
 		}
 		//this.setAttribute('image',blob);
