@@ -5,6 +5,8 @@ import { Content } from '../containers/content.js';
 import { Header } from '../headers/header.js';
 import { Avatar } from '../avatars/avatar.js';
 import { CardsArea } from '../cards/cards.js';
+import { Footer } from '../footers/footers.js';
+import { FlatButton } from '../buttons/buttons.js';
 
 let codesign = new Codesign();
 new Connect();

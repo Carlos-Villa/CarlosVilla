@@ -1,0 +1,19 @@
+app-footer:host{
+	
+}
+footer{
+	font-family: 'Roboto',Arial;
+	font-weight: lighter;
+}
+.simple hr{
+	width: 95%;
+	margin: 0.5em auto;
+
+}
+.simple p{
+	
+	font-size: 0.8em;
+}
+.center{
+	text-align: center;
+}

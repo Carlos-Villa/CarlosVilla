@@ -1,9 +1,12 @@
 app-card-area:host{
 	width: 100%;
+	
 }
 section{
 	width: 90%;
 	margin: 8em auto;
+	font-family: 'Roboto',Arial;
+	font-weight: lighter;
 }
 section app-card{
 	width: calc(33.33% - 1em);
@@ -39,6 +42,8 @@ app-card:host{
 article{
 	width: 100%;
 	box-shadow: 1px 1px 10px rgba(0,0,0,0.7);
+	font-family: 'Roboto',Arial;
+	font-weight: lighter;
 }
 
 #title-area{
@@ -49,8 +54,7 @@ article{
 #title-text{
 	color: #F5F5F5;
 	text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
-	font-weight: lighter;
-	font-family: Arial;
+	
 	position: relative;
 	top: 200px;
 	left: 1em;
@@ -58,11 +62,10 @@ article{
 }
 #content{
 	width: 90%;
+	height: 4em;
 	margin: 1em auto;
 	color: rgba(0,0,0,0.7);
 	font-size: 1.3em;
-	font-weight: lighter;
-	font-family: Arial;
 	text-align: justify;
 }
 .separator{

@@ -5,6 +5,9 @@ html, body{
 	padding: 0;
 	overflow-x: hidden;
 	overflow-y: auto;
+	font-family: 'Roboto',Arial;
+	font-weight: lighter;
+
 }
 
 app-root{
@@ -12,6 +15,8 @@ app-root{
 	height: 100%;
 	position: absolute;
 	overflow: hidden;
+	font-family: 'Roboto',Arial;
+	font-weight: lighter;
 }
 
 .hide{

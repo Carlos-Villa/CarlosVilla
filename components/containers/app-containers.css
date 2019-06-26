@@ -3,6 +3,8 @@ app-content:host{
 }
 
 .content{
+	font-family: 'Roboto',Arial;
+	font-weight: lighter;
 	width: 100%;
 	height: calc(100% - 4em);
 	overflow-y: auto;

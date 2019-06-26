@@ -1,0 +1,49 @@
+.btn{
+	right: 0.5em;
+    bottom: 0.5em;
+    font-size: 3em;
+    width: 50px;
+    height: 50px;
+}
+.btn:hover > .flat-menu{
+	display: block;
+}
+.flat{
+    
+    font-family: 'Roboto';
+    border-radius: 50%;
+    line-height: 1;
+    border: none;
+    color: #2396f3;
+    background: #FFF;
+    box-shadow: 1px 1px 10px #000000AA;
+    cursor: pointer;
+}
+.flat-menu{
+	right: 0.55em;
+    bottom: 0.6em;
+}
+
+.flat-menu a {
+	text-decoration: none;
+    font-size: 0.6em;
+    margin-bottom: 0.15em;
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 1.5;
+}
+
+.flat-menu li{
+	list-style: none;
+}
+
+.fixed{
+	position: fixed;
+    z-index: 99999999;
+
+}
+
+.hide{
+	display: none;
+}
