@@ -14,13 +14,21 @@ let noty = class Noty{
 		}
 		else if (window.Notification && Notification.permission === "granted")
 		{
-			let data = {title:'test'};
-			let opts = {
+			this.create({
+				title: 'Hola, bienvenido!',
 				body:'¿Necesitas cotizar algún desarrollo?',
-				icon:`${path}public/img/angulars.jpg`
-			}
-			new Notification("Hola, bienvenido!" , opts);
+				icon:`${path}public/img/angulars.jpg`,
+				click: () => {
+					alert('hi');
+				}
+			})
 		}
+	}
+
+	create({title,body,icon,click})
+	{
+		let noty = new Notification(title,{body,icon});
+		noty.click = click;
 	}
 }
 
