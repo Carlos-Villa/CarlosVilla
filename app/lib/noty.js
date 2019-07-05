@@ -28,7 +28,7 @@ let noty = class Noty{
 	create({title,body,icon,click})
 	{
 		let noty = new Notification(title,{body,icon});
-		noty.click = click;
+		noty.onclick = click;
 	}
 }
 
