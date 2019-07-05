@@ -52,19 +52,19 @@ article{
 	background-color: #00000022;
 }
 #title-text{
-	color: #F5F5F5;
+	color: #FFFFFF;
 	text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
-	
+	background-color: #000000A9;
 	position: relative;
 	top: 200px;
-	left: 1em;
-	width: calc(100% - 1em);
+	padding: 0.5em 1em;
+	width: calc(100% - 2em);
 }
 #content{
 	width: 90%;
 	height: 4em;
 	margin: 1em auto;
-	color: rgba(0,0,0,0.7);
+	color: #000000;
 	font-size: 1.3em;
 	text-align: justify;
 }

@@ -10,22 +10,16 @@ let noty = class Noty{
 				if (Notification.permission !== status) {
 					Notification.permission = status;
 				}
-
-				let opts = {
-					body:'Welcome to mi site',
-					icon:`${path}public/img/angulars.jpg`
-				}
-				new Notification("Hi, welcome!" , opts);
 			});
 		}
 		else if (window.Notification && Notification.permission === "granted")
 		{
 			let data = {title:'test'};
 			let opts = {
-				body:'Welcome to mi site',
+				body:'¿Necesitas cotizar algún desarrollo?',
 				icon:`${path}public/img/angulars.jpg`
 			}
-			new Notification("Hi, welcome!" , opts);
+			new Notification("Hola, bienvenido!" , opts);
 		}
 	}
 }

@@ -41,13 +41,13 @@ let CardsArea = class CardArea extends Html{
 		this.cards = [
 
 			{
-				title:'Web Applications',
+				title:'PWAS',
 				image:'./public/img/pwas.svg',
 				content:'Progresive web applications',
 				show:true
 			},
 			{
-				title:'Mobile Applications',
+				title:'Mobile',
 				image:'./public/img/mobile.svg',
 				content:'Mobile applications connected with your pwas',
 				show:true
