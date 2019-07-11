@@ -1,17 +1,12 @@
+import { fn, Storage, P } from './fn.js';
+
+
 let components = {};
 let w = window;
 let nav = w.navigator;
 let Html = HTMLElement;
-let Storage = localStorage;
-
-
-Storage.__proto__.set = (name,data)=>{
-	Storage.setItem(name,JSON.stringify(data));
-};
-
-Storage.__proto__.get = (name)=>{
-	return Storage.getItem(name,JSON.parse(data));
-};
+let F = new fn();
+let Platform = new P();
 
 let Codesign = class Codesign{
 
@@ -30,7 +25,11 @@ let Codesign = class Codesign{
 	}
 
 	add(element){
-		components[element.name] = {name:element.name,loading:true};
+		
+		if(element.preload != false){
+			components[element.name] = {name:element.name,loading:true};
+		}
+
 		customElements.define(
 
 			element.name,
@@ -39,8 +38,11 @@ let Codesign = class Codesign{
 		);
 	}
 
+	get(component){
+		return customElements.get(component);
+	}
+
 	check_load(name){
-		
 		components[name].loading = false;
 		let loading = 0;
 		let tm = Object.entries(components).length;
@@ -50,6 +52,11 @@ let Codesign = class Codesign{
 			loading += c[1].loading ? 1 : 0;
 		});
 		pml = ppm *  (tm - loading);
+		let percent = pml.toFixed()+'%';
+		console.log(percent);
+		var p = this.$('app-preload').shadowRoot.querySelector('#percent');
+		p.textContent = percent;
+		
 		//document.querySelector('app-preload #percent').innerText = `${pml.toFixed(2)}%`;
 		(loading == 0 && this.$('app-preload')) ? this.$('app-preload').classList.add('hide') :  false;
 		
@@ -62,7 +69,7 @@ let Codesign = class Codesign{
 			let err = {message:msg,url:url,line:lineNo,column: columnNo,object:error};
 
 			console.log(err);
-			return true;
+			return false;
 		};
 	}
 
@@ -151,4 +158,4 @@ let Connect = class Connect{
 	}
 }
 
-export {Codesign,Html,Storage,Connect};
+export {Codesign,Html,Storage,Connect,F,Platform};

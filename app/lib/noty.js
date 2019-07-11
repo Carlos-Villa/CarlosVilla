@@ -19,7 +19,7 @@ let noty = class Noty{
 				body:'¿Necesitas cotizar algún desarrollo?',
 				icon:`${path}public/img/angulars.jpg`,
 				click: () => {
-					alert('hi');
+					console.log('hi');
 				}
 			})
 		}

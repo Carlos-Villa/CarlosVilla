@@ -20,13 +20,21 @@ app-preload:host{
 	width: 100%;
 	height: 100%;
 }
+
+#percent{
+	color: #FFFFFF;
+    margin: 0.5em auto;
+    
+}
 #preload{
 	width: 100%;
 	height: 100%;
-	background: rgba(0,0,0,0.9);
+	background: rgba(0,0,0,0.95);
 	position: fixed;
-	z-index: 99999999;
+	z-index: 9999999999999;
+	text-align: center;
 }
+
 .preloader {
 	width: 60px;
 	height: 60px;
@@ -37,7 +45,7 @@ app-preload:host{
 	animation-duration: 0.7s;
 	animation-iteration-count: infinite;
 	animation-timing-function: cubic-bezier(.65,.05,.36,1);
-	margin: 25% auto;
+	margin: 40% auto 0.5em auto;
 
 }
 

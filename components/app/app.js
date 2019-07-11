@@ -7,6 +7,7 @@ import { Avatar } from '../avatars/avatar.js';
 import { CardsArea } from '../cards/cards.js';
 import { Footer } from '../footers/footers.js';
 import { FlatButton } from '../buttons/buttons.js';
+import { Email } from '../email/email.js';
 
 let codesign = new Codesign();
 new Connect();

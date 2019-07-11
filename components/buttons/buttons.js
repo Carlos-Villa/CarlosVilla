@@ -9,8 +9,8 @@ var FlatButton = class FlatButton extends Html{
 		this.buttons = [
 			{
 				title:'Facebook',
-				icon: 'fab fa-facebook',
-				link:'',
+				icon: 'material-icons',
+				link:'#',
 				background: '#2396f3',
 				color: '#FFF',
 				target:'_blank'
@@ -30,12 +30,13 @@ var FlatButton = class FlatButton extends Html{
 		instance.querySelector('ul').innerHTML = '';
 		this.buttons.map((b)=>{
 			let btn = li;
-			btn.innerText = b.title[0];
+			//btn.innerText = b.title[0];
 			let icon = document.createElement('i');
 			let i_class = b.icon.split(' ');
 			i_class.forEach((c)=>{
 				icon.classList.add(c); 
 			});
+			icon.innerText = 'face';
 			btn.classList.add('flat');
 			//btn.appendChild(icon);
 			btn.href = b.link;
@@ -46,7 +47,51 @@ var FlatButton = class FlatButton extends Html{
 			return b;
 		});
 		shadowRoot.appendChild(instance);
-		codesign.check_load('flat-btn');
+		//codesign.check_load('flat-btn');
+
+	}
+
+}
+
+var NormalButton = class NormalButton extends Html{
+
+	constructor(){
+		super();
+	}
+
+	async connectedCallback(){
+
+		const template = await codesign.load_file('./components/buttons/buttons.html');
+		const shadowRoot = this.attachShadow({mode: 'open'});
+		let parser = new DOMParser();
+		let doc = parser.parseFromString(template, "text/html");
+		const templ = doc.querySelector('#normal-button');
+		const instance = templ.content.cloneNode(true);
+		instance.contentText = this.getAttribute('text');
+		shadowRoot.appendChild(instance);
+		//codesign.check_load('normal-button');
+
+	}
+
+}
+
+var LinkButton = class LinkButton extends Html{
+
+	constructor(){
+		super();
+	}
+
+	async connectedCallback(){
+
+		const template = await codesign.load_file('./components/buttons/buttons.html');
+		const shadowRoot = this.attachShadow({mode: 'open'});
+		let parser = new DOMParser();
+		let doc = parser.parseFromString(template, "text/html");
+		const templ = doc.querySelector('#normal-button');
+		const instance = templ.content.cloneNode(true);
+		instance.contentText = this.getAttribute('text');
+		shadowRoot.appendChild(instance);
+		//codesign.check_load('link-button');
 
 	}
 
@@ -55,8 +100,25 @@ var FlatButton = class FlatButton extends Html{
 codesign.add({
 
 	name:'flat-btn',
-	instance:FlatButton
+	instance:FlatButton,
+	preload: false
 
 });
 
-export {FlatButton};
+codesign.add({
+
+	name:'normal-button',
+	instance:NormalButton,
+	preload: false
+
+});
+
+codesign.add({
+
+	name:'link-button',
+	instance:LinkButton,
+	preload: false
+
+});
+
+export {FlatButton,NormalButton,LinkButton};

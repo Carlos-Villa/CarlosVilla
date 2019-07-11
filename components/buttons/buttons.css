@@ -1,14 +1,29 @@
 .btn{
-	right: 0.5em;
-    bottom: 0.5em;
-    font-size: 3em;
-    width: 50px;
-    height: 50px;
+	
+	border: none;
+	padding:0.5em;
+	margin:0.2em;
+	box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	background-color: transparent;
+	transition: all 300ms ease-in-out;
+	cursor:pointer;
+
 }
+
 .btn:hover > .flat-menu{
 	display: block;
 	opacity: 1;
+}	
+
+.btn.primary:hover{
+	opacity: 0.8;
 }
+
+.btn.primary{
+	background-color: #2396f3;
+	color: #FFFFFF;
+}
+
 .flat{
     
     font-family: 'Roboto';
