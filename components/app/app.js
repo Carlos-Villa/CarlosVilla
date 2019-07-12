@@ -11,12 +11,7 @@ import { Email } from '../email/email.js';
 
 let codesign = new Codesign();
 new Connect();
-Platform.ready().then((platform)=>{
-	if(platform.ready){
-		console.log("ready");
-		new noty().check();
-	}
-});
+
 
 let Preload = class Preload extends Html{
 	
@@ -39,7 +34,12 @@ let Preload = class Preload extends Html{
 		this.tmpl = templ.content.cloneNode(true);
 		shadowRoot.appendChild(instance);
 		codesign.check_load('app-preload');
-
+		Platform.ready().then((platform)=>{
+			if(platform.ready){
+				console.log("ready");
+				new noty().check();
+			}
+		});
 	}
 }
 
