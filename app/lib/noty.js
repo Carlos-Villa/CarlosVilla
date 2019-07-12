@@ -23,7 +23,7 @@ let noty = class Noty{
 					body:'¿Necesitas cotizar algún desarrollo?',
 					icon:`${path}public/img/angulars.jpg`,
 					click: () => {
-						Modals.email_modals.show();
+						Modals.email_modal.show();
 					}
 				});
 			},1000);
@@ -35,7 +35,7 @@ let noty = class Noty{
 				body:'¿Necesitas cotizar algún desarrollo?',
 				icon:`${path}public/img/angulars.jpg`,
 				click: () => {
-					Modals.email_modals.show();
+					Modals.email_modal.show();
 				}
 			});
 		}
