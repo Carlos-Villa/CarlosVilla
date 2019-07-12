@@ -50,14 +50,6 @@ let App = class App extends Html{
 	constructor(){
 		super();
 		codesign.init_log();
-		console.log('platform');
-		Platform.ready().then((platform)=>{
-			console.log("...",platform);
-			if(platform.ready){
-				console.log("ready");
-				new noty().check();
-			}
-		});
 
 	}
 
@@ -71,6 +63,14 @@ let App = class App extends Html{
 		shadowRoot.appendChild(instance);
 		codesign.title('Carlos Villa');
 		codesign.check_load('app-root');
+		console.log('platform');
+		Platform.ready().then((platform)=>{
+			console.log("...",platform);
+			if(platform.ready){
+				console.log("ready");
+				new noty().check();
+			}
+		});
 	}
 }
 
