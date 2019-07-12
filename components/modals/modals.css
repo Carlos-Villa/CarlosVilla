@@ -1,5 +1,36 @@
+.btn{
+	
+	border: none;
+    padding: 0.5em;
+    margin: 0.2em;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    background-color: transparent;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+    font-size: 1.2em;
+    box-shadow: 0 0 10px #000000AA;
+    cursor: pointer;
+
+}
+	
+
+.btn.primary:hover{
+	opacity: 0.8;
+}
+
+.btn.primary{
+	background-color: #2396f3;
+	color: #FFFFFF;
+}
+
+.disabled{
+	opacity: 0.5;
+	cursor: not-allowed;
+	z-index: -1;
+}
+
 .modal {
-	/*display: none;*/
+	display: none;
 	position: fixed;
 	z-index: 1;
 	padding-top: 100px;

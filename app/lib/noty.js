@@ -1,6 +1,11 @@
+import { Modals } from './fn.js';
 let w = window;
 let path = w.location.href;
 let noty = class Noty{
+
+	constructor(){
+
+	}
 
 	check()
 	{
@@ -11,6 +16,17 @@ let noty = class Noty{
 					Notification.permission = status;
 				}
 			});
+
+			setTimeout(()=>{
+				this.create({
+					title: 'Hola, bienvenido!',
+					body:'¿Necesitas cotizar algún desarrollo?',
+					icon:`${path}public/img/angulars.jpg`,
+					click: () => {
+						Modals.email_modals.show();
+					}
+				});
+			},1000);
 		}
 		else if (window.Notification && Notification.permission === "granted")
 		{
@@ -19,10 +35,11 @@ let noty = class Noty{
 				body:'¿Necesitas cotizar algún desarrollo?',
 				icon:`${path}public/img/angulars.jpg`,
 				click: () => {
-					console.log('hi');
+					Modals.email_modals.show();
 				}
-			})
+			});
 		}
+		
 	}
 
 	create({title,body,icon,click})

@@ -26,7 +26,7 @@ let NormalModal = class NormalModal extends Html{
 			let node = c.cloneNode(true);
 			instance.querySelector('.modal .modal-content .modal-body').appendChild(node);
 		});
-		console.log(instance);
+		
 		shadowRoot.appendChild(instance);
 		this.innerHTML = '';
 		//codesign.check_load('normal-modal');

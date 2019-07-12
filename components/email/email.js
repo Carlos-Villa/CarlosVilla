@@ -1,5 +1,5 @@
 import * as gmail from 'https://apis.google.com/js/client.js';
-import { Codesign,Storage, Html, F, Platform } from '../../app/lib/core.js';
+import { Codesign,Storage, Html, F, Platform, Modals} from '../../app/lib/core.js';
 import { NormalButton, LinkButton } from '../buttons/buttons.js'; 
 import { NormalModal } from '../modals/modals.js'; 
 
@@ -94,45 +94,57 @@ let Email = class Email extends Html {
 				self.gapi.client.load('gmail', 'v1', ()=>{});
 		        self.gapi.client.setApiKey(self.api_key);
 		        window.setTimeout(self.check_auth(self), 1);
-		        let m = self.shadowRoot.children[1].shadowRoot.querySelector('#compose-modal form');
-		        
-		        self.shadowRoot.children[1].shadowRoot.querySelector('#compose-modal form').addEventListener('submit',(e)=>{
+		        let m = self.shadowRoot.children[1].shadowRoot.querySelector('#compose-modal');
 
-		        	e.preventDefault();
-		        	self.send_email(self);
-		        });
+		        let email_modal = F.$(m).modal({
+					cancel: (e) =>{
+						email_modal.hide();
+					},
+					confirm:(e) =>{
+
+						self.send_email({
+							to: F.$('#compose-to',m.querySelector('form-control').shadowRoot),
+							subject: F.$('#compose-subject',m.querySelector('form-control').shadowRoot),
+							message: F.$('#compose-message',m.querySelector('form-control').shadowRoot),
+							btn: e.target,
+							context: self
+						});
+					}
+				});
+		        Modals.email_modal = email_modal;
+		        
 			}
 		},1000);
 		
 	}
 
-	send_email(self)
+	send_email({to,subject,message,btn,context})
 	{
-		codesign.$('#send-button').classList.add('disabled');
 
-		let res = self.send_message(
+		btn.classList.add('disabled');
+
+		let res = context.send_message(
 			{
-				'To': codesign.$('#compose-to').value,
-				'Subject': codesign.$('#compose-subject').value
+				'To': to.val(),
+				'Subject': subject.val()
 			},
-			codesign.$('#compose-message').value,
-			self.compose_tidy,
-			self
+			message.val(),
+			context.compose_tidy(btn,subject,message,to),
+			context
 		);
-		console.log(res);
 		return false;
 	}
 
-	compose_tidy()
+	compose_tidy(btn,subject,message,to)
 	{
-		//codesign.$('#compose-modal').modal('hide');
-		//$('#compose-to').val('');
-		//$('#compose-subject').val('');
-		//$('#compose-message').val('');
-		//$('#send-button').removeClass('disabled');
+		Modals.email_modal.hide();
+		to.val('');
+		subject.val('');
+		message.val('');
+		btn.classList.remove('disabled');
 	}
 
-	send_message(headers_obj, message, callback,self)
+	send_message(headers_obj, message, callback,context)
 	{
 		let email = '';
 
@@ -140,8 +152,8 @@ let Email = class Email extends Html {
 			email += header += ": "+headers_obj[header]+"\r\n";
 		
 		email += "\r\n" + message;
-		console.log(self,self.gapi.client);
-		let send_request = self.gapi.client.gmail.users.messages.send(
+		
+		let send_request = context.gapi.client.gmail.users.messages.send(
 			{
 				'userId': 'me',
 				'resource': {

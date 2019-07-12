@@ -45,7 +45,7 @@ app-preload:host{
 	animation-duration: 0.7s;
 	animation-iteration-count: infinite;
 	animation-timing-function: cubic-bezier(.65,.05,.36,1);
-	margin: 40% auto 0.5em auto;
+	margin: 20% auto 0.5em auto;
 
 }
 

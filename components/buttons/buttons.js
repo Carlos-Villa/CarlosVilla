@@ -7,14 +7,14 @@ var FlatButton = class FlatButton extends Html{
 	constructor(){
 		super();
 		this.buttons = [
-			{
+			/*{
 				title:'Facebook',
 				icon: 'material-icons',
 				link:'#',
 				background: '#2396f3',
 				color: '#FFF',
 				target:'_blank'
-			}
+			}*/
 		];
 	}
 

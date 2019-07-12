@@ -1,4 +1,4 @@
-import { fn, Storage, P } from './fn.js';
+import { fn, Storage, P, Modals } from './fn.js';
 
 
 let components = {};
@@ -43,6 +43,7 @@ let Codesign = class Codesign{
 	}
 
 	check_load(name){
+
 		components[name].loading = false;
 		let loading = 0;
 		let tm = Object.entries(components).length;
@@ -53,7 +54,6 @@ let Codesign = class Codesign{
 		});
 		pml = ppm *  (tm - loading);
 		let percent = pml.toFixed()+'%';
-		console.log(percent);
 		var p = this.$('app-preload').shadowRoot.querySelector('#percent');
 		p.textContent = percent;
 		
@@ -158,4 +158,4 @@ let Connect = class Connect{
 	}
 }
 
-export {Codesign,Html,Storage,Connect,F,Platform};
+export {Codesign,Html,Storage,Connect,F,Platform, Modals};

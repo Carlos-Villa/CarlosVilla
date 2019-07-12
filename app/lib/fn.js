@@ -1,6 +1,7 @@
 let w = window;
+w.modals = {};
 let Storage = localStorage;
-
+let Modals = w.modals;
 Storage.__proto__.set = (name,data)=>{
 	Storage.setItem(name,JSON.stringify(data));
 };
@@ -9,11 +10,13 @@ Storage.__proto__.get = (name)=>{
 	return JSON.parse(Storage.getItem(name));
 };
 
+
+
 let fn =  class fn {
 	
 
 	$(selector,context = document){
-		let elements = context.querySelectorAll(selector);
+		let elements = typeof selector == 'string' ? context.querySelectorAll(selector) : [selector];
 
 		return {
 			elements,
@@ -29,12 +32,15 @@ let fn =  class fn {
 				return els.map(callback);
 				
 			},
+			hasClass(name){
+				return elements[0].classList.contains('float-label');
+			},
 			modal(config){
 				
 				let els = Array.from(elements);
 				elements.forEach((e)=>{
 					let actions = e.querySelector('.actions');
-					
+					console.log(actions);
 					if(config.cancel){
 						let cancel = document.createElement('button');
 						cancel.textContent = 'Cancel';
@@ -46,6 +52,7 @@ let fn =  class fn {
 						let confirm = document.createElement('button');
 						confirm.textContent = 'Confirm';	
 						confirm.classList = 'btn primary';
+						confirm.addEventListener('click',config.confirm);
 						actions.append(confirm);
 					}
 
@@ -96,38 +103,15 @@ let fn =  class fn {
 					e.addEventListener(event,callback);
 				})
 				return this;
-			}
-		}
-	}
-
-	$$ (selector, context = document) {
-		const elements = Array.from(context.querySelectorAll(selector))
-
-		return {
-
-			elements,
-
-			html (newHtml) {
-				this.elements.forEach(element => {
-					element.innerHTML = newHtml
-				});
-				return this;
 			},
-
-			css (newCss) {
-				this.elements.forEach(element => {
-					Object.assign(element.style, newCss)
-				});
-				return this;
-			},
-
-			on (event, handler, options) {
-				this.elements.forEach(element => {
-					element.addEventListener(event, handler, options)
-				});
-				return this;
+			val(value){
+				let el = elements[0];
+				
+				if(value != null){
+					el.setAttribute('value',value);
+				};
+				return el.getAttribute('value');
 			}
-
 		}
 	}
 };
@@ -190,4 +174,4 @@ let P = class Platform{
 
 }
 
-export { fn, Storage, P };
+export { fn, Storage, P,Modals};
