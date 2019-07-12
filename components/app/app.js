@@ -34,12 +34,7 @@ let Preload = class Preload extends Html{
 		this.tmpl = templ.content.cloneNode(true);
 		shadowRoot.appendChild(instance);
 		codesign.check_load('app-preload');
-		Platform.ready().then((platform)=>{
-			if(platform.ready){
-				console.log("ready");
-				new noty().check();
-			}
-		});
+
 	}
 }
 
@@ -55,6 +50,14 @@ let App = class App extends Html{
 	constructor(){
 		super();
 		codesign.init_log();
+		console.log('platform');
+		Platform.ready().then((platform)=>{
+			console.log("...",platform);
+			if(platform.ready){
+				console.log("ready");
+				new noty().check();
+			}
+		});
 
 	}
 
