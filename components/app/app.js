@@ -1,4 +1,4 @@
-import { Codesign, Html, Storage,Connect, Platform } from '../../app/lib/core.js';
+import { Codesign, Html, Storage,Connect} from '../../app/lib/core.js';
 import { noty } from '../../app/lib/noty.js';
 import { Component } from '../../app/lib/decorators.js';
 import { Content } from '../containers/content.js';
@@ -11,7 +11,7 @@ import { Email } from '../email/email.js';
 
 let codesign = new Codesign();
 new Connect();
-
+new noty().check();
 
 let Preload = class Preload extends Html{
 	
@@ -50,7 +50,6 @@ let App = class App extends Html{
 	constructor(){
 		super();
 		codesign.init_log();
-
 	}
 
 	async connectedCallback(){
@@ -63,14 +62,6 @@ let App = class App extends Html{
 		shadowRoot.appendChild(instance);
 		codesign.title('Carlos Villa');
 		codesign.check_load('app-root');
-		console.log('platform');
-		Platform.ready().then((platform)=>{
-			console.log("...",platform);
-			if(platform.ready){
-				console.log("ready");
-				new noty().check();
-			}
-		});
 	}
 }
 

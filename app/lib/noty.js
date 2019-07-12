@@ -23,7 +23,18 @@ let noty = class Noty{
 					body:'¿Necesitas cotizar algún desarrollo?',
 					icon:`${path}public/img/angulars.jpg`,
 					click: () => {
-						Modals.email_modal.show();
+						if(Modals.email_modal){
+							Modals.email_modal.show();
+						}else{
+							let test_modal = null;
+							test_modal = setInterval(()=>{
+								if(Modals.email_modal){
+									clearInterval(test_modal);
+									Modals.email_modal.show();
+								}
+							},1000);
+						}
+						
 					}
 				});
 			},1000);
@@ -35,7 +46,17 @@ let noty = class Noty{
 				body:'¿Necesitas cotizar algún desarrollo?',
 				icon:`${path}public/img/angulars.jpg`,
 				click: () => {
-					Modals.email_modal.show();
+					if(Modals.email_modal){
+							Modals.email_modal.show();
+					}else{
+						let test_modal = null;
+						test_modal = setInterval(()=>{
+							if(Modals.email_modal){
+								clearInterval(test_modal);
+								Modals.email_modal.show();
+							}
+						},1000);
+					}
 				}
 			});
 		}
