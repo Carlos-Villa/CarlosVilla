@@ -10,9 +10,10 @@ import { FlatButton } from '../buttons/buttons.js';
 import { Email } from '../email/email.js';
 
 let codesign = new Codesign();
+new Connect();
 Platform.ready().then((platform)=>{
 	if(platform.ready){
-		new Connect();
+		console.log("ready");
 		new noty().check();
 	}
 });
