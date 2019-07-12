@@ -1,4 +1,4 @@
-import { Codesign, Html, Storage,Connect } from '../../app/lib/core.js';
+import { Codesign, Html, Storage,Connect, Platform } from '../../app/lib/core.js';
 import { noty } from '../../app/lib/noty.js';
 import { Component } from '../../app/lib/decorators.js';
 import { Content } from '../containers/content.js';
@@ -10,8 +10,12 @@ import { FlatButton } from '../buttons/buttons.js';
 import { Email } from '../email/email.js';
 
 let codesign = new Codesign();
-new Connect();
-new noty().check();
+Platform.ready().then((platform)=>{
+	if(platform.ready){
+		new Connect();
+		new noty().check();
+	}
+});
 
 let Preload = class Preload extends Html{
 	
